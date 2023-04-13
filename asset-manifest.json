@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/tourism/static/css/main.c834d86d.css",
+    "main.js": "/tourism/static/js/main.4b29e12e.js",
+    "static/js/787.b4cdd736.chunk.js": "/tourism/static/js/787.b4cdd736.chunk.js",
+    "static/media/Background-main.jpg": "/tourism/static/media/Background-main.ac55cd72f01c32b7ddad.jpg",
+    "static/media/Background-phone.png": "/tourism/static/media/Background-phone.8266517ab8aaf5794f79.png",
+    "static/media/CardImage2.jpg": "/tourism/static/media/CardImage2.30ac9c96fce14c11d925.jpg",
+    "static/media/CardImage.jpg": "/tourism/static/media/CardImage.f7c8bddcfdddbc85eb0b.jpg",
+    "static/media/CardImage3.jpg": "/tourism/static/media/CardImage3.07a517be001692e5c13d.jpg",
+    "static/media/GreycliffCF-Regular.otf": "/tourism/static/media/GreycliffCF-Regular.3d0835f885ce0675ef82.otf",
+    "static/media/Guide-profile.png": "/tourism/static/media/Guide-profile.3470b38a891671ebfc5c.png",
+    "index.html": "/tourism/index.html",
+    "main.c834d86d.css.map": "/tourism/static/css/main.c834d86d.css.map",
+    "main.4b29e12e.js.map": "/tourism/static/js/main.4b29e12e.js.map",
+    "787.b4cdd736.chunk.js.map": "/tourism/static/js/787.b4cdd736.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c834d86d.css",
+    "static/js/main.4b29e12e.js"
+  ]
+}
