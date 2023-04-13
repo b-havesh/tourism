@@ -1,38 +1,493 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100;200;300;400;500;600;700&display=swap");
+
+:root {
+  --green: #008080;
+  --dark: #001A1A;
+  --light: #E6F2F2;
+  --white: #FFFFFF;
+  --black: #000000;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@font-face {
+  font-family: Greycliff;
+  src: url(./components/Greycliff_CF/GreycliffCF-Regular.otf);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+  scrollbar-width: thin;
+  scrollbar-color: --dark --white;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--white);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--dark);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--black);
+}
+
+body {
+  height: 100vh;
+  font-family: "IBM Plex Mono", monospace;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background: var(--white);
+}
+
+.flex {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.background-image {
+  background-image: url(./components/Images/Background-main.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 75vh;
+  width: 100%;
+  position: relative;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.welcome-text {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 900;
+  font-size: clamp(4rem, 18vw, 8.75rem);
+  background-image: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 1),
+    40%,
+    rgba(255, 255, 255, 0.3)
+  );
+  background-clip: text;
+  -webkit-background-clip: text; /* For Safari */
+  color: transparent;
+  line-height: 8.25rem;
+  text-align: center;
+  padding-top: 11rem;
+  padding-inline: auto;
+}
+
+/* Header */
+
+.header-container {
+  background: var(--white);
+  max-width: 71rem;
+  width: 71%;
+  height: 5rem;
+  position: absolute;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  justify-content: flex-start;
+  padding-left: 1.5rem;
+  border-radius: .75rem;
+}
+
+.logo-container {
+  align-items: flex-end;
+}
+
+.logo {
+  margin-inline: -0.1rem;
+  cursor: pointer;
+}
+
+.logo:last-child {
+  margin-right: 5rem;
+}
+
+.menu ul {
+  list-style: none;
+}
+
+.menu ul li a {
+  text-decoration: none;
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 400;
+  font-size: 1rem;
+  color: var(--dark);
+  margin-inline: 1.25rem;
+  position: relative;
+}
+
+.menu ul li:first-child {
+  margin-left: 0;
+}
+
+#book-btn {
+  font-weight: 700;
+  font-size: 1rem;
+  padding: .5625rem 1.5rem .6875rem;
+  width: 8rem;
+  height: 2.5rem;
+  background: var(--green);
+  border-radius: 8px;
+  font-family: Greycliff;
+  color: var(--white);
+  cursor: pointer;
+  transition: 0.2s all ease;
+  border: none;
+  position: absolute;
+  right: 1.5rem;
+}
+
+#book-btn:hover {
+  background: #006b6b;
+}
+
+/* Menu and close buttons */
+
+.menu-ico {
+  cursor: pointer;
+  display: none;
+  border: none;
+  position: absolute;  
+  right: 29px;
+  background: var(--white);
+}
+
+.close-btn {
+  border: none;
+  background: var(--white);
+  position: absolute;
+  top: 28px;
+  right: 28px;
+}
+
+/* Second Page */
+
+.second-page-container {
+  width: 100%;
+  background: var(--white);
+}
+
+.highlights {
+  font-family: "IBM Plex Mono", monospace;
+  color: var(--dark);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: default;
+  position: absolute;
+  top: -40px
+}
+
+.card-main-container {
+  gap: 1.0625rem;
+  margin-top: 5.25rem;
+  padding-top: 4rem;
+  overflow-x: hidden;
+}
+
+.card-container {
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 23rem;
+  height: 21.25rem;
+  border-radius: 8px;
+  font-family: "IBM Plex Mono", monospace;
+  cursor: pointer;
+  box-shadow: 0px 0px 16px rgba(0, 128, 128, 0.16);
+  transition: 0.3s all ease;
+  margin-bottom: 5rem;
+}
+
+.card-container:first-child {
+  position: relative;
+  z-index: 1;
+}
+
+.card-container:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.card-img {
+  width: 23rem;
+  height: auto;
+  margin-bottom: 1.5rem;
+  border-radius: 8px 8px 0 0;
+}
+
+.card-head {
+  margin-bottom: 1rem;
+  margin-left: 1.5rem;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--green);
+}
+
+.card-desc {
+  margin-left: 1.5rem;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+#btn-arrow {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: .75rem;
+  background: var(--light);
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  margin: .375rem 1.5rem 0 auto;
+  transition: 0.2s all ease;
+}
+
+#btn-arrow:hover {
+  background: #c3d8d8;
+}
+
+/* Footer */
+
+.footer-container {
+  background: var(--light);
+  gap: 2rem;
+  align-items: flex-start;
+  padding-top: 4.75rem;
+  flex-wrap: wrap;
+}
+
+.footer-container ul {
+  list-style: none;
+  flex-direction: column;
+  font-family: "IBM Plex Mono", monospace;
+  gap: .5rem;
+  position: relative;
+  margin-bottom: 5rem;
+}
+
+.footer-container ul li {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: clamp(358px, 80vw, 544px);
+  height: 4.25rem;
+  background: var(--white);
+  border-radius: 8px;
+  padding-left: 1.5rem;
+  cursor: pointer;
+  transition: 0.2s all ease;
+  margin-inline: 1rem;
+}
+
+.footer-container ul li:hover {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.footer-container ul li img {
+  margin: auto 1.5rem auto auto;
+  cursor: pointer;
+}
+
+.guide-main-container {
+  background: var(--white);
+  border-radius: .5rem;
+  width: 35rem;
+  width: clamp(356px, 80vw, 560px);
+  height: 11rem;
+  justify-content: space-between;
+  position: relative;
+  margin-inline: 1rem;
+  margin-bottom: 5rem;
+}
+
+.guide-desc-container {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 1.5rem 0 0 1.5rem;
+}
+
+.guide-desc-container h4 {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.guide-desc-container .guide-since {
+  margin-bottom: 3.0625rem;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+#contact-btn {
+  background: transparent;
+  color: var(--green);
+  padding: .625rem 1.5rem;
+  border: 1px solid var(--green);
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+  transition: 0.2s all ease;
+}
+
+#contact-btn:hover {
+  background: var(--green);
+  color: var(--white);
+}
+
+.guide-profile img {
+  width: 8rem;
+  height: 8rem;
+  margin-right: 1.5rem;
+}
+
+.categories,
+.travel-guide {
+  position: absolute;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--dark);
+  top: -36px;
+  left: 0;
+}
+
+/* Footer Final */
+
+.footer-final {
+  background: var(--dark);
+}
+
+.footer-final img {
+  margin-inline: -0.1rem;
+  cursor: pointer;
+}
+
+.footer-final img:first-child {
+  margin-left: 11.75rem;
+}
+
+/* Sidebar */
+
+.sidebar-items {
+  background: var(--white);
+  flex-direction: column;
+  position: fixed;
+  gap: 2.5rem;
+  top: 0;
+  width: 22.8125rem;
+  justify-content: flex-start;
+  align-items: flex-start;
+  z-index: 9999;
+  padding-left: 2.5rem;
+  font-size: 1.25rem;
+  font-weight: 400;
+  list-style: none;
+  transition: 0.3s all ease;
+  right: -100%;
+  visibility: hidden;
+  height: 100vh;
+  z-index: 999;
+}
+
+.active-menu {
+right: 0;
+visibility: visible;
+}
+
+.sidebar-items li a {
+text-decoration: none;
+color: var(--dark);
+}
+
+.sidebar-items li:first-child {
+margin-top: 7.5rem;
+}
+
+#sidebar-book-btn {
+font-weight: 700;
+font-size: 1rem;
+padding: .5625rem 1.5rem .6875rem;
+width: 8rem;
+height: 2.5rem;
+background: var(--green);
+border-radius: 8px;
+font-family: Greycliff;
+color: #fff;
+cursor: pointer;
+transition: 0.2s all ease;
+border: none;
+}
+
+.visible {
+  transform: translateX(0);
+  display: block;
+}
+
+/* Media - 990px */
+
+@media screen and (max-width: 990px) {
+  .header-container {
+    top: 0;
+    width: 100%;
+    border-radius: 0;
   }
-  to {
-    transform: rotate(360deg);
+  p.categories {
+    margin-left: 1rem;
+  }
+  .menu ul a {
+    display: none;
+  }
+  #book-btn {
+    display: none;
+  }
+  .menu-ico {
+    display: block;
+  }
+  .footer-final img:first-child {
+    margin-left: 1rem;
+  }
+  .card-main-container {
+    overflow-x: auto;
+    justify-content: flex-start;
+    margin-inline: 1rem;
+  }
+  .card-img {
+    width: 20.875rem;
+    height: 10.625rem;
+  }
+  .card-container {
+    width: 20.875rem;
+    height: 21.25rem;
+  }
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Media - 580px */
+
+@media screen and (max-width: 580px) {
+  .background-image {
+    background: url(./components/Images/Background-phone.png);
+    background-position: center 10%;
+    background-size: cover;
+  }
+  .guide-profile img {
+    width: 4.625rem;
+    height: 4.625rem;
+  }
+  .welcome-text {
+    padding-top: 17.5rem;
+    line-height: 4.375rem;
   }
 }
